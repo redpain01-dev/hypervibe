@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* HyperDoctor 본체(hyperdoctor.app)의 브랜드 토큰을 그대로 승계한다.
+   값을 바꿀 때는 본체와 함께 바꾼다. */
+@theme {
+  --color-ink: #102235;
+  --color-muted: #5d6c7c;
+  --color-line: #dce5e8;
+  --color-soft: #f3f8f7;
+  --color-navy: #08263b;
+  --color-teal: #0c806f;
+  --color-teal-dark: #086457;
+
+  --font-sans: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", system-ui,
+    -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "D2Coding", ui-monospace, SFMono-Regular,
+    Menlo, monospace;
+
+  --radius-card: 28px;
+  --radius-panel: 18px;
+
+  --shadow-card: 0 18px 48px #10223517;
+  --shadow-lift: 0 24px 64px #1022351f;
+
+  --container-page: 1180px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+}
+
+/* 한글 본문에서 단어가 어색하게 잘리지 않도록 제목에는 균형 줄바꿈을 적용한다. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-teal) 18%, transparent);
+}
