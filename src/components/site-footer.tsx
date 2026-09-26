@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { nav, site, toolboxNav } from "@/lib/site";
 
@@ -6,15 +7,24 @@ export function SiteFooter() {
     <footer className="border-t border-line bg-soft">
       <div className="mx-auto grid w-full max-w-page gap-12 px-6 py-16 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <p className="text-lg font-bold tracking-tight">HyperVibe</p>
+          <p className="flex items-center gap-2 text-lg font-bold tracking-tight">
+            <Image
+              src="/brand/hypervibe-mark.png"
+              alt=""
+              width={36}
+              height={36}
+              className="h-9 w-9"
+            />
+            HyperVibe
+          </p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
             {site.description}
           </p>
           <a
-            href={site.parentUrl}
+            href={`${site.parentUrl}/`}
             className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-teal-dark hover:underline"
           >
-            {site.parent} 본체 사이트로 이동 ↗
+            H+ {site.parent} 전체 도구 보기 →
           </a>
         </div>
 

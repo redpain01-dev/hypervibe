@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -14,12 +15,33 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-page items-center gap-6 px-6">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="text-lg font-bold tracking-tight">HyperVibe</span>
-          <span className="hidden text-[11px] font-semibold tracking-[0.14em] text-muted uppercase sm:inline">
-            by {site.parent}
-          </span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <a
+            href={`${site.parentUrl}/`}
+            aria-label={`${site.parent} 전체 도구로 이동`}
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-line px-3 text-xs font-bold text-navy transition-colors hover:border-teal/40 hover:text-teal-dark focus-visible:outline-2 focus-visible:outline-teal"
+          >
+            H+
+            <span className="hidden font-semibold text-muted sm:inline">
+              전체 도구
+            </span>
+          </a>
+          <span className="h-5 w-px bg-line" aria-hidden />
+          <Link
+            href="/"
+            className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-teal"
+          >
+            <Image
+              src="/brand/hypervibe-mark.png"
+              alt=""
+              width={32}
+              height={32}
+              priority
+              className="h-8 w-8"
+            />
+            <span className="text-lg font-bold tracking-tight">HyperVibe</span>
+          </Link>
+        </div>
 
         <nav className="ml-auto hidden items-center gap-1 lg:flex">
           {nav.map((item) => (
